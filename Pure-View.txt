@@ -1,0 +1,17 @@
+En toute honnêteté voilà ce que j'ai compris de la doc:
+
+Une fonction déclarée avec View ne change pas d'état. Ces actions indiquent une modification de l'état:
+* En créant d'autres contacts
+* En faisant des transferts d'Ether avec Solidity à travers des appels.
+* En écrivant des variables d'état
+* En effacant un événement.
+
+Une fonction déclarée avec Pure ne devrait pas modifier ou lire depuis l'état. Ca évite à une fonction Pure de : 
+
+* Appeller des fonctions qui ne sont pas marquées.
+* D'utiliser des assemblées en ligne contenant des opcodes spécifiques.
+* Lire depuis les variables d'état.
+* D'accéder à address(this).balance ou <address>.balance
+* D'accéder aux membres de block, tx, msg (excepté msg.sig et msg.data).
+
+Et en réalité j'ai pas compris grand chose.
